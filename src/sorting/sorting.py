@@ -14,11 +14,11 @@ def merge(arrA, arrB):
         else:
             merged_arr.append(arrB[j])
             j += 1
-
+    # if the arrB is already empty add all the remaining items in arrA
     while i < len(arrA):
         merged_arr.append(arrA[i])
         i += 1
-
+    # if the arrA is already empty add all the remaining items in arrB
     while j < len(arrB):
         merged_arr.append(arrB[j])
         j += 1
@@ -39,10 +39,10 @@ def merge_sort(arr):
         left = arr[:mid]
         right = arr[mid:]
         # keep doing this until all the arrays are of 1 element each
-        merge_sort(left)
-        merge_sort(right)
+        # merge_sort(left)
+        # merge_sort(right)
 
-        merge(left, right)
+        arr = merge(merge_sort(left), merge_sort(right))
 
     return arr
 
@@ -60,3 +60,8 @@ def merge_in_place(arr, start, mid, end):
 def merge_sort_in_place(arr, l, r):
     # Your code here
     pass
+
+
+arr = [5, 3, 1, 4, 2, 6]
+
+print(merge_sort(arr))
